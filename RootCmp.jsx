@@ -1,16 +1,13 @@
 const Router = ReactRouterDOM.HashRouter
 const { Routes, Route, Navigate } = ReactRouterDOM
 
-
-
-import { Vision } from "./cmps/AboutCmps/Vision.jsx"
-import { Team } from "./cmps/AboutCmps/Team.jsx"
 import { AppHeader } from "./cmps/AppHeader.jsx"
+import { HomePage } from "./pages/HomePage.jsx"
+import { AboutUs } from "./pages/AboutUs.jsx"
+import { BookIndex } from "./pages/BookIndex.jsx"
+import { BookDetails } from "./pages/BookDetails.jsx"
+import { BookEdit } from "./pages/BookEdit.jsx"
 import { NotFound } from "./cmps/NotFound.jsx"
-import { About } from "./pages/About.jsx"
-import { CarIndex } from "./pages/CarIndex.jsx"
-import { Home } from "./pages/Home.jsx"
-import { CarDetails } from "./pages/CarDetails.jsx"
 
 
 export function App() {
@@ -19,18 +16,14 @@ export function App() {
         <Router>
             <section className="app">
                 <AppHeader />
-
                 <main className="main-layout">
                     <Routes>
-                        <Route path="/" element={<Navigate to="/home" />} />
-                        <Route path="/home" element={<Home />} />
-                        <Route path="/about" element={<About />}>
-                            <Route path="/about/vision" element={<Vision />} />
-                            <Route path="/about/team" element={<Team />} />ƒ
-                        </Route>
-                        <Route path="/car" element={<CarIndex />} />
-                        <Route path="/car/:carId" element={<CarDetails />} />
-                        <Route path="*" element={<NotFound />} />
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/about-us" element={<AboutUs />} />
+                        {/* <Route path="/book" element={<BookIndex />} /> */}
+                        {/* <Route path="/book/edit" element={<BookEdit />} /> */}
+                        {/* <Route path="/book/:bookId" element={<BookDetails />} /> */}
+                        {/* <Route path="*" element={<NotFound />} /> */}
                     </Routes>
                 </main>
             </section>
