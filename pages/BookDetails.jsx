@@ -29,7 +29,7 @@ export function BookDetails() {
         <section className="book-details">
             <h1>{book.title}</h1>
             <p>{book.desc}</p>
-            <img src={book.thumb} alt="cover-image" />
+            <img src={book.thumbnail} alt="cover-image" />
             <button onClick={onBack}>Back</button>
             <section>
                 <Link to={`/book/${book.prevBookId}`}><button>Prev Book</button></Link>
