@@ -28,7 +28,7 @@ export function BookDetails() {
     return (
         <section className="book-details">
             <h1>{book.title}</h1>
-            <p>{book.desc}</p>
+            <p>{book.description}</p>
             <img src={book.thumbnail} alt="cover-image" />
             <button onClick={onBack}>Back</button>
             <section>
