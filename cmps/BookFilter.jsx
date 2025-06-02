@@ -1,6 +1,6 @@
 
 const { useState, useEffect } = React
-export function CarFilter({ filterBy, onSetFilter }) {
+export function BookFilter({ filterBy, onSetFilter }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
@@ -22,28 +22,16 @@ export function CarFilter({ filterBy, onSetFilter }) {
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
-    /* 
-    function handleTxtChange({ target }) {
-        const value = target.value
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, txt: value }))
-    }
-    
-    function handleMinSpeedChange({ target }) {
-        const value = target.value
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, minSpeed: value }))
-    }
-    */
-
-    const { txt, minSpeed } = filterByToEdit
+    const { txt, maxPrice } = filterByToEdit
     return (
-        <section className="car-filter">
-            <h2>Filter Our Cars</h2>
+        <section className="book-filter">
+            <h2>Filter Our Books</h2>
             <form>
-                <label htmlFor="txt">Vendor</label>
+                <label htmlFor="txt">Name</label>
                 <input onChange={handleChange} value={txt} name="txt" type="text" id="txt" />
 
-                <label htmlFor="minSpeed">Min Speed</label>
-                <input onChange={handleChange} value={minSpeed} name="minSpeed" type="number" id="minSpeed" />
+                <label htmlFor="minSpeed">Max Price</label>
+                <input onChange={handleChange} value={maxPrice} name="maxPrice" type="number" id="maxPrice" />
             </form>
         </section>
     )
