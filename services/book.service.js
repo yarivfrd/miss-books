@@ -19,7 +19,7 @@ const
             desc:'These stories speak to our current moment in time: the uncertainty and fragility—full of misunderstandings and miscommunications—while looking for reasons and the strength to find hope.',
             thumb: 'https://m.media-amazon.com/images/I/71N6uWaR7KL._SL300_.jpg',
             listPrice: {
-                amount: '13.99',
+                amount: 13.99,
                 currencyCode: 'EUR',
                 isOnSale: 'false'
             }
@@ -29,7 +29,7 @@ const
             desc:'For the last 100,000 years, we Sapiens have accumulated enormous power. But despite all our discoveries, inventions, and conquests, we now find ourselves in an existential crisis. The world is on the verge of ecological collapse. Misinformation abounds. And we are rushing headlong into the age of AI—a new information network that threatens to annihilate us. For all that we have accomplished, why are we so self-destructive?',
             thumb: 'https://m.media-amazon.com/images/I/71l4l6o2drL._SL300_.jpg',
             listPrice: {
-                amount: '79.99',
+                amount: 79.99,
                 currencyCode: 'ILS',
                 isOnSale: 'false'
             }
@@ -51,10 +51,10 @@ function query(filterBy = {}) {
         .then(books => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                books = books.filter(book => regExp.test(book.vendor))
+                books = books.filter(book => regExp.test(book.title))
             }
-            if (filterBy.minSpeed) {
-                books = books.filter(book => book.speed >= filterBy.minSpeed)
+            if (filterBy.maxPrice) {
+                books = books.filter(book => book.listPrice.amount <= filterBy.maxPrice)
             }
             return books
         })
@@ -82,17 +82,16 @@ function getEmptyBook(title = '', desc = '', thumb = '', listPrice = '') {
 }
 
 function getDefaultFilter() {
-    return { txt: '', minSpeed: '' }
+    return { txt: '', maxPrice: '' }
 }
-
 
 function _setNextPrevBookId(book) {
     return query().then((books) => {
         const bookIdx = books.findIndex((currBook) => currBook.id === book.id)
         const nextBook = books[bookIdx + 1] ? books[bookIdx + 1] : books[0]
         const prevBook = books[bookIdx - 1] ? books[bookIdx - 1] : books[books.length - 1]
-        book.nextbookId = nextBook.id
-        book.prevbookId = prevBook.id
+        book.nextBookId = nextBook.id
+        book.prevBookId = prevBook.id
         return book
     })
 }
