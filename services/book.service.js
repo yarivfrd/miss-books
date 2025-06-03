@@ -467,6 +467,12 @@ function query(filterBy = {}) {
             if (filterBy.maxPrice) {
                 books = books.filter(book => book.listPrice.amount <= filterBy.maxPrice)
             }
+            if (filterBy.isOnSale) {
+                books = books.filter(book => book.listPrice.isOnSale);
+            }
+            if (filterBy.maxYear) {
+                books = books.filter(book => book.publishedDate <= filterBy.maxYear);
+            }
             return books
         })
 }
@@ -493,7 +499,7 @@ function getEmptyBook(title = '', desc = '', thumb = '', listPrice = '') {
 }
 
 function getDefaultFilter() {
-    return { txt: '', maxPrice: '' }
+    return { txt: '', maxPrice: '', maxYear: '', isOnSale: false }
 }
 
 function _setNextPrevBookId(book) {

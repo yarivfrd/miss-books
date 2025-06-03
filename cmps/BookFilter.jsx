@@ -22,7 +22,7 @@ export function BookFilter({ filterBy, onSetFilter }) {
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
-    const { txt, maxPrice } = filterByToEdit
+    const { txt, maxPrice, maxYear, isOnSale } = filterByToEdit
     return (
         <section className="book-filter">
             <h2>Filter Our Books</h2>
@@ -30,8 +30,15 @@ export function BookFilter({ filterBy, onSetFilter }) {
                 <label htmlFor="txt">Name</label>
                 <input onChange={handleChange} value={txt} name="txt" type="text" id="txt" />
 
-                <label htmlFor="minSpeed">Max Price</label>
+                <label htmlFor="maxPrice">Max Price</label>
                 <input onChange={handleChange} value={maxPrice} name="maxPrice" type="number" id="maxPrice" />
+
+                <label htmlFor="maxYear">Max Year</label>
+                <input onChange={handleChange} value={maxYear} name="maxYear" type="number" id="maxYear" />
+
+                <label htmlFor="isOnSale">On Sale</label>
+                <input onChange={handleChange} value={isOnSale} name="isOnSale" type="checkbox" id="isOnSale" />
+                
             </form>
         </section>
     )
