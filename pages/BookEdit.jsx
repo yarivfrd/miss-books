@@ -1,7 +1,7 @@
 
 import { bookService } from "../services/book.service.js";
 import { makeId, makeLorem, getRandomIntInclusive } from '../services/util.service.js';
-const { Link, NavLink } = ReactRouterDOM
+const { Link, useNavigate } = ReactRouterDOM
 
 const { useState } = React
 
@@ -10,7 +10,8 @@ export function BookEdit() {
     const
         [titleVal, setTitleVal] = useState(''),
         [priceVal, setPriceVal] = useState(''),
-        [successMsg, setSuccessMsg] = useState(null);
+        [successMsg, setSuccessMsg] = useState(null),
+        navigate = useNavigate();
 
     function handleChange({ target }) {
         let { value, name: field } = target
@@ -56,7 +57,7 @@ export function BookEdit() {
 
                 <section className="btns flex">
                     <button type="submit">Save</button>
-                    <Link to='/book' className="back-btn" >Back</Link>
+                    <button onClick={() => navigate('/book')}>Back</button>
                 </section>
                 
                 <div className="success-msg">{successMsg}</div>
