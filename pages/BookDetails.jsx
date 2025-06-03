@@ -44,6 +44,11 @@ export function BookDetails() {
         if (currYear - book.publishedDate > 10) return 'Vintage';
     }
 
+    function getPriceColor() {
+        if (book.listPrice.amount > 150) return 'red';
+        if (book.listPrice.amount < 20) return 'green';
+    }
+
     if (!book) return <div>Loading...</div>
     return (
         <section className="book-details">
@@ -55,7 +60,10 @@ export function BookDetails() {
             <p>{book.description}</p>
             <p className="categories">Categories: {book.categories.map(cat => <span  key={makeId()} style={{border: 'solid 1px', paddingInline: '5px', marginInlineEnd: '5px'}}>{cat}</span>)}</p>
             <p>{getAgeLevel()}</p>
-            <p>{currencySymbolMap[book.listPrice.currencyCode]}{book.listPrice.amount} <span>{book.listPrice.isOnSale ? '- ON SALE' : ''}</span></p>
+            <p>
+                <span style={{color: getPriceColor()}}>{currencySymbolMap[book.listPrice.currencyCode]}{book.listPrice.amount}</span>
+                &nbsp;<span>{book.listPrice.isOnSale ? '- ON SALE' : ''}</span>
+            </p>
             <img src={book.thumbnail} alt="cover-image" />
             <button onClick={onBack}>Back</button>
             <section>
