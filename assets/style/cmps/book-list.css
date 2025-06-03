@@ -1,0 +1,24 @@
+.book-preview .image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.book-preview .on-sale:after {
+    content: 'On Sale';
+    position: absolute;
+    right: -50%;
+    top: 0px;
+    width: 100%;
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: gold;
+    background-color: darkred;
+    border: solid gold;
+    padding-block-start: 5px;
+    padding-block-end: 5px;
+    transform: translate(-40px, 25px) rotate(45deg);
+
+}
