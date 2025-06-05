@@ -1,0 +1,12 @@
+
+.LongTxt {
+    background-color: 'whitesmoke';
+}
+
+.LongTxt a {
+    color: var(--clr1);
+}
+
+.LongTxt p {
+    margin-block-end: 0;
+}
