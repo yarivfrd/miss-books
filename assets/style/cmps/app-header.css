@@ -3,6 +3,7 @@
     color: var(--clr1bg-light);
     padding-block-start: .75em;
     border-bottom: solid 5px gold;
+    margin-block-end: 50px;
 }
 
 .app-header h1 {
