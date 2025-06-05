@@ -1,8 +1,12 @@
 .app-header {
     background-color: var(--clr1);
     color: var(--clr1bg-light);
-    padding-block: .75em;
+    padding-block-start: .75em;
+    border-bottom: solid 5px gold;
+}
 
+.app-header h1 {
+    margin: 0;
 }
 
 .app-header section:first-child {
@@ -15,10 +19,18 @@
 .app-header .app-nav {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 
 .app-header a.active {
-    color: var(--clr2bg);
-    font-weight: 600;
-    text-decoration: underline;
+    background-color: gold;
+    color: var(--clr1);
+    padding-block-start: 10px;
+    padding-block-end: 15px;
+    padding-inline: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border: solid goldenrod;
+    border-bottom: none;
+
 }
