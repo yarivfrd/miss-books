@@ -52,20 +52,24 @@ export function BookDetails() {
     if (!book) return <div>Loading...</div>
     return (
         <section className="book-details">
-            <h1>{book.title}</h1>
-            <p>By: {book.authors.map(author => <span key={makeId()}>{author}</span>)}</p>
-            <p>Released {book.publishedDate} | {book.pageCount} Pages | Language: {book.language.toUpperCase()}</p>
-            <p>Level: {getReadingLevelMsg()}</p>
-            <p>{book.subtitle}</p>
-            <p>{book.description}</p>
-            <p className="categories">Categories: {book.categories.map(cat => <span  key={makeId()} style={{border: 'solid 1px', paddingInline: '5px', marginInlineEnd: '5px'}}>{cat}</span>)}</p>
-            <p>{getAgeLevel()}</p>
-            <p>
-                <span style={{color: getPriceColor()}}>{currencySymbolMap[book.listPrice.currencyCode]}{book.listPrice.amount}</span>
-                &nbsp;<span>{book.listPrice.isOnSale ? '- ON SALE' : ''}</span>
-            </p>
-            <img src={book.thumbnail} alt="cover-image" />
             <button onClick={onBack}>Back</button>
+            <div className="main-details">
+                <img src={book.thumbnail} alt="cover-image" />
+                <div className="info">
+                    <h2>{book.title}</h2>
+                    <p>By: {book.authors.map(author => <span key={makeId()}>{author}</span>)}</p>
+                    <p>Released {book.publishedDate} | {book.pageCount} Pages | Language: {book.language.toUpperCase()}</p>
+                    <p>Level: {getReadingLevelMsg()}</p>
+                    <p>{book.subtitle}</p>
+                    <p>{book.description}</p>
+                    <p className="categories">Categories: {book.categories.map(cat => <span  key={makeId()} style={{border: 'solid 1px', paddingInline: '5px', marginInlineEnd: '5px'}}>{cat}</span>)}</p>
+                    <p>{getAgeLevel()}</p>
+                    <p>
+                        <span style={{color: getPriceColor()}}>{currencySymbolMap[book.listPrice.currencyCode]}{book.listPrice.amount}</span>
+                        &nbsp;<span>{book.listPrice.isOnSale ? '- ON SALE' : ''}</span>
+                    </p>
+                </div>
+            </div>
             <section>
                 <Link to={`/book/${book.prevBookId}`}><button>Prev Book</button></Link>
                 <Link to={`/book/${book.nextBookId}`}><button>Next Book</button></Link>
