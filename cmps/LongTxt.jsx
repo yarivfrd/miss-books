@@ -12,9 +12,12 @@ export default function LongTxt({ txt, length = 100 }) {
     }
 
     return (
-        <div className="LongTxt" style={{backgroundColor: 'whitesmoke', padding: '20px'}}>
-            <p>{isCollapsed ? txt : `${txt.substring(0, length).trim()}...`}</p>
-            <button onClick={handleCollpaseToggle}>{isCollapsed ? 'Read less' : 'Read more'}</button>
+        <div className="LongTxt">
+            <p>
+                {isCollapsed ? txt : `${txt.substring(0, length).trim()}... `}
+                <a onClick={handleCollpaseToggle}> Show {isCollapsed ? 'less' : 'more'}</a>
+            </p>
+            
         </div>
     )
 }
