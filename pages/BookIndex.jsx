@@ -6,7 +6,6 @@ const { Link, useNavigate } = ReactRouterDOM
 
 const { useEffect, useState } = React
 
-
 export function BookIndex() {
     const
         [books, setBooks] = useState(null),
@@ -41,14 +40,16 @@ export function BookIndex() {
 
     if (!books) return <div>Loading...</div>
     return (
-        <section className="book-index">
-            <button onClick={() => navigate('/book/edit')}>Add New</button>
-            <BookFilter onSetFilter={onSetFilter} filterBy={filterBy} />
+        <div className="BookIndex">
+            <aside>
+                <button onClick={() => navigate('/book/edit')}>Add New</button>
+                <BookFilter onSetFilter={onSetFilter} filterBy={filterBy} />
+            </aside>
             <BookList
                 books={books}
                 onRemoveBook={onRemoveBook}
             />
-        </section>
+        </div>
     )
 
 }

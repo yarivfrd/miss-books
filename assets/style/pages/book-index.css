@@ -1,0 +1,21 @@
+.BookIndex {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.BookIndex aside {
+    position: sticky;
+    top: 50px;
+    height: max-content;
+}
+
+.BookIndex aside,
+.BookIndex fieldset {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.BookIndex aside button {
+    margin: 0;
+}
