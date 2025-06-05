@@ -14,7 +14,7 @@ export function App() {
 
     return (
         <Router>
-            <section className="app">
+            <div className="app">
                 <AppHeader />
                 <main className="main-layout">
                     <Routes>
@@ -26,7 +26,7 @@ export function App() {
                         {/* <Route path="*" element={<NotFound />} /> */}
                     </Routes>
                 </main>
-            </section>
+            </div>
         </Router>
     )
 } 

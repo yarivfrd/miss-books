@@ -5,7 +5,7 @@ import { BookPreview } from "./BookPreview.jsx";
 export function BookList({ books, onRemoveBook }) {
 
     return (
-        <ul className="book-list">
+        <ul className="BookList">
             {books.map(book =>
                 <li key={book.id}>
                     <BookPreview book={book} />

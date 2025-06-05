@@ -1,6 +1,6 @@
 
 import { bookService } from "../services/book.service.js";
-import { makeId, makeLorem, getRandomIntInclusive } from '../services/util.service.js';
+import { makeLorem, getRandomIntInclusive } from '../services/util.service.js';
 const { Link, useNavigate } = ReactRouterDOM
 
 const { useState } = React
