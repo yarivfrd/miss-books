@@ -1,0 +1,13 @@
+.book-edit {
+    text-align: center;
+}
+
+.book-edit form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-edit form input {
+    margin-block-end: 15px;
+}
