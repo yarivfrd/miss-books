@@ -1,0 +1,46 @@
+.book-preview {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-preview h2 {
+    max-width: 200px;
+    text-transform: capitalize;
+    color: darkred;
+    /* margin-block-start: 0; */
+}
+
+.book-preview .image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    filter: drop-shadow(0 0 15px #999);
+}
+
+.book-preview img {
+    max-width: 200px;
+    border-radius: 3px;
+}
+
+
+.book-preview .on-sale:after {
+    content: 'On Sale';
+    position: absolute;
+    right: -50%;
+    top: 0px;
+    width: 100%;
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: gold;
+    background-color: darkred;
+    border: solid gold;
+    padding-block-start: 5px;
+    padding-block-end: 5px;
+    transform: translate(-40px, 25px) rotate(45deg);
+    box-shadow: 0 0 10px #000;
+
+}
