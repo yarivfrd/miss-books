@@ -1,7 +1,8 @@
-.home {
 
+.home {
+    text-align: center;
 }
 
-.home img {
-    width: 100%;
+.welcome {
+    margin-block-start: 70px;
 }
