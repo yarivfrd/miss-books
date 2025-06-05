@@ -25,20 +25,23 @@ export function BookFilter({ filterBy, onSetFilter }) {
     const { txt, maxPrice, maxYear, isOnSale } = filterByToEdit
     return (
         <section className="book-filter">
-            <h2>Filter Our Books</h2>
             <form>
-                <label htmlFor="txt">Name</label>
-                <input onChange={handleChange} value={txt} name="txt" type="text" id="txt" />
-
-                <label htmlFor="maxPrice">Max Price</label>
-                <input onChange={handleChange} value={maxPrice} name="maxPrice" type="number" id="maxPrice" />
-
-                <label htmlFor="maxYear">Max Year</label>
-                <input onChange={handleChange} value={maxYear} name="maxYear" type="number" id="maxYear" />
-
-                <label htmlFor="isOnSale">On Sale</label>
-                <input onChange={handleChange} value={isOnSale} name="isOnSale" type="checkbox" id="isOnSale" />
-                
+                <fieldset>
+                    <legend>Filter</legend>
+                    <label>Name
+                        <input onChange={handleChange} value={txt} name="txt" type="text" id="txt" />
+                    </label>
+                    <label htmlFor="maxPrice">Max Price
+                        <input onChange={handleChange} value={maxPrice} name="maxPrice" type="number" id="maxPrice" />
+                    </label>
+                    <label htmlFor="maxYear">Max Year
+                        <input onChange={handleChange} value={maxYear} name="maxYear" type="number" id="maxYear" />
+                    </label>
+                    <label htmlFor="isOnSale">
+                        <input onChange={handleChange} value={isOnSale} name="isOnSale" type="checkbox" id="isOnSale" />
+                        On Sale
+                    </label>
+                </fieldset>
             </form>
         </section>
     )
