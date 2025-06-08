@@ -8,8 +8,7 @@ const { useState } = React
 export function BookEdit() {
 
     const
-        [titleVal, setTitleVal] = useState(''),
-        [priceVal, setPriceVal] = useState(''),
+        [bookToEdit, setBookToEdit] = useState(bookService.getEmptyBook()),
         [successMsg, setSuccessMsg] = useState(null),
         navigate = useNavigate();
 
@@ -44,6 +43,9 @@ export function BookEdit() {
         }).then(({ title }) => {setSuccessMsg(`${title} added successfully`)});
     }
 
+    const
+        titleVal = bookToEdit.title,
+        priceVal = bookToEdit.listPrice.amount;
     const isEdit = false
     return (
         <section onSubmit={onSaveBook} className="book-edit">
