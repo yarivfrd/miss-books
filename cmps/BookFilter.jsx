@@ -28,13 +28,13 @@ export function BookFilter({ filterBy, onSetFilter }) {
             <form>
                 <fieldset>
                     <legend>Filter</legend>
-                    <label>Name
+                    <label>Name<br/>
                         <input onChange={handleChange} value={txt} name="txt" type="text" id="txt" />
                     </label>
-                    <label htmlFor="maxPrice">Max Price
+                    <label htmlFor="maxPrice">Max Price<br/>
                         <input onChange={handleChange} value={maxPrice} name="maxPrice" type="number" id="maxPrice" />
                     </label>
-                    <label htmlFor="maxYear">Max Year
+                    <label htmlFor="maxYear">Max Year<br/>
                         <input onChange={handleChange} value={maxYear} name="maxYear" type="number" id="maxYear" />
                     </label>
                     <label htmlFor="isOnSale">
