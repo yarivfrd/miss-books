@@ -35,3 +35,9 @@
     border-bottom: none;
 
 }
+
+@media (max-width: 1000px) {
+    .app-header {
+        margin-block-end: 20px;
+    }
+}

@@ -19,3 +19,15 @@
 .BookIndex aside button {
     margin: 0;
 }
+
+@media (max-width: 1000px) {
+    .BookIndex {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .BookIndex aside {
+        position: static;
+        margin-block-end: 30px;
+    }
+}

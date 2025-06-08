@@ -21,3 +21,9 @@
     margin-block-start: 0;
     color: var(--clr1);
 }
+
+@media (max-width: 1000px) {
+    .book-details .main-details {
+        flex-direction: column;
+    }
+}

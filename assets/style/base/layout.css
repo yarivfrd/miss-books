@@ -26,3 +26,9 @@ main.main-layout {
     padding: 1em;
     margin: auto;
 }
+
+@media (max-width: 1000px) {
+    .main-layout {
+        grid-template-columns: 5% 1fr 5%;
+    }
+}
