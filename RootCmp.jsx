@@ -1,5 +1,5 @@
 const Router = ReactRouterDOM.HashRouter
-const { Routes, Route, Navigate } = ReactRouterDOM
+const { Routes, Route } = ReactRouterDOM
 
 import { AppHeader } from "./cmps/AppHeader.jsx"
 import { HomePage } from "./pages/HomePage.jsx"
