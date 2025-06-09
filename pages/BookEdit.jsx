@@ -1,7 +1,8 @@
 
 import { bookService } from "../services/book.service.js";
 import { makeLorem, getRandomIntInclusive } from '../services/util.service.js';
-const { Link, useNavigate } = ReactRouterDOM
+import { showSuccessMsg } from "../services/event-bus.service.js";
+const { useNavigate } = ReactRouterDOM;
 
 const { useState } = React
 
@@ -9,7 +10,6 @@ export function BookEdit() {
 
     const
         [bookToEdit, setBookToEdit] = useState(bookService.getEmptyBook()),
-        [successMsg, setSuccessMsg] = useState(null),
         navigate = useNavigate();
 
     function handleChange({ target }) {
@@ -33,7 +33,10 @@ export function BookEdit() {
                 currencyCode: "USD",
                 isOnSale: false
             }
-        }).then(({ title }) => {setSuccessMsg(`${title} added successfully`)});
+        }).then(({ title }) => {
+            showSuccessMsg(`${title} added successfully`);
+            navigate('/book');
+        });
     }
 
     const
@@ -54,8 +57,7 @@ export function BookEdit() {
                     <button type="submit">Save</button>
                     <button onClick={() => navigate('/book')}>Back</button>
                 </section>
-                
-                <div className="success-msg">{successMsg}</div>
+        
             </form>
         </section>
     )
