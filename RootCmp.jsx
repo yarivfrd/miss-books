@@ -23,7 +23,7 @@ export function App() {
                         <Route path="/book" element={<BookIndex />} />
                         <Route path="/book/edit" element={<BookEdit />} />
                         <Route path="/book/:bookId" element={<BookDetails />} />
-                        {/* <Route path="*" element={<NotFound />} /> */}
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
             </div>

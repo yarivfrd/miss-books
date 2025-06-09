@@ -10,7 +10,7 @@ export function NotFound() {
             <p>
                 Sorry but the page you are looking for does not exist.
             </p>
-            <Link to="/home">Back</Link>
+            <Link to="/">Back</Link>
         </section>
     )
 }
