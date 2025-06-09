@@ -13,15 +13,8 @@ export function BookEdit() {
         navigate = useNavigate();
 
     function handleChange({ target }) {
-        let { value, name: field } = target
-        switch (field) {
-            case 'title':
-                setTitleVal(value);
-                break
-            case 'price':
-                setPriceVal(value);
-                break
-        }
+        let { value, name: field } = target;
+        setBookToEdit(curr => ({...curr, [field]: value}));
     }
 
     function onSaveBook(e) {
