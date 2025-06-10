@@ -1,9 +1,13 @@
 .book-details {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: center;
     padding-bottom: 15vh;
+}
+
+.book-details .navigation {
+    display: flex;
+    justify-content: space-between;
 }
 
 .book-details .main-details {

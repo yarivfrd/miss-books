@@ -52,7 +52,13 @@ export function BookDetails() {
     if (!book) return <div>Loading...</div>
     return (
         <section className="book-details">
-            <button onClick={onBack}>Back</button>
+            <div className="navigation">
+                <button onClick={onBack}>All Books</button>
+                <section>
+                    <Link to={`/book/${book.prevBookId}`}><button>Prev Book</button></Link>
+                    <Link to={`/book/${book.nextBookId}`}><button>Next Book</button></Link>
+                </section>
+            </div>
             <div className="main-details">
                 <img src={book.thumbnail} alt="cover-image" />
                 <div className="info">
@@ -70,10 +76,6 @@ export function BookDetails() {
                     </p>
                 </div>
             </div>
-            <section>
-                <Link to={`/book/${book.prevBookId}`}><button>Prev Book</button></Link>
-                <Link to={`/book/${book.nextBookId}`}><button>Next Book</button></Link>
-            </section>
         </section>
     )
 }
