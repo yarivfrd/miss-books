@@ -12,6 +12,7 @@
 
 .book-details .main-details {
     display: flex;
+    align-items: flex-start;
     gap: 30px;
     margin-block: 20px;
 }
@@ -28,6 +29,8 @@
 
 @media (max-width: 1000px) {
     .book-details .main-details {
+        text-align: center;
+        align-items: center;
         flex-direction: column;
     }
 }
