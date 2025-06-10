@@ -41,12 +41,18 @@ export function BookIndex() {
         setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
     }
 
+    function handleBooksReset() {
+        bookService.resetBooksDb();
+        navigate(0);
+    }
+
     if (!books) return <div>Loading...</div>
     return (
         <div className="BookIndex">
             <aside>
                 <button onClick={() => navigate('/book/edit')}>Add New</button>
                 <BookFilter onSetFilter={onSetFilter} filterBy={filterBy} />
+                <button onClick={handleBooksReset}>Reset Books</button>
             </aside>
             <BookList
                 books={books}

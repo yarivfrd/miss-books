@@ -455,6 +455,7 @@ export const bookService = {
     save,
     getEmptyBook,
     getDefaultFilter,
+    resetBooksDb
 }
 
 function query(filterBy = {}) {
@@ -511,4 +512,8 @@ function _setNextPrevBookId(book) {
         book.prevBookId = prevBook.id
         return book
     })
+}
+
+function resetBooksDb() {
+    saveToStorage(BOOK_KEY, books);
 }
