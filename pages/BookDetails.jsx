@@ -21,6 +21,7 @@ export function BookDetails() {
     }, [params.bookId])
 
     function loadBook() {
+        setBook(null);
         bookService.get(params.bookId)
             .then(setBook)
             .catch(err => {
