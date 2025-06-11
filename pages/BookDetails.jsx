@@ -90,10 +90,10 @@ export function BookDetails() {
                     <p>Level: {getReadingLevelMsg()}</p>
                     <p>{book.subtitle}</p>
                     <p>{book.description}</p>
-                    <p className="categories">Categories: {book.categories.map(cat => <span  key={makeId()} style={{border: 'solid 1px', paddingInline: '5px', marginInlineEnd: '5px'}}>{cat}</span>)}</p>
+                    <p className="categories">Categories: {book.categories.map(cat => <span key={makeId()} style={{ border: 'solid 1px', paddingInline: '5px', marginInlineEnd: '5px' }}>{cat}</span>)}</p>
                     <p>{getAgeLevel()}</p>
                     <p>
-                        <span style={{color: getPriceColor()}}>{currencySymbolMap[book.listPrice.currencyCode]}{book.listPrice.amount}</span>
+                        <span style={{ color: getPriceColor() }}>{currencySymbolMap[book.listPrice.currencyCode]}{book.listPrice.amount}</span>
                         &nbsp;<span>{book.listPrice.isOnSale ? '- ON SALE' : ''}</span>
                     </p>
                 </div>

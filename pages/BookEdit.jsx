@@ -42,7 +42,9 @@ export function BookEdit() {
     const
         titleVal = bookToEdit.title,
         priceVal = bookToEdit.listPrice.amount;
+
     const isEdit = false
+    
     return (
         <section onSubmit={onSaveBook} className="book-edit">
             <h1>{isEdit ? 'Edit' : 'Add'} Book</h1>
