@@ -1,4 +1,4 @@
-import { loadFromStorage, makeId, saveToStorage } from './util.service.js'
+import { saveToStorage, makeId } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const
@@ -24,7 +24,15 @@ const
             "amount": 109,
             "currencyCode": "EUR",
             "isOnSale": false
-        }
+        },
+        "reviews": [
+            {
+                "id": "2dpp06xa",
+                "fullName": "Yariv Fruend",
+                "rating": 3,
+                "readAt": 1749534066245
+            }
+        ] 
     },
     {
         "id": "JYOJa2NpSCq",
@@ -445,8 +453,6 @@ const
         }
     }
 ];
-saveToStorage(BOOK_KEY, books);
-// _createBooks();
 
 export const bookService = {
     query,
@@ -455,7 +461,9 @@ export const bookService = {
     save,
     getEmptyBook,
     getDefaultFilter,
-    resetBooksDb
+    resetBooksDb,
+    addReview,
+    deleteReview
 }
 
 function query(filterBy = {}) {
@@ -516,4 +524,22 @@ function _setNextPrevBookId(book) {
 
 function resetBooksDb() {
     saveToStorage(BOOK_KEY, books);
+}
+
+function addReview(bookId, review) {
+    review = {...review, id: makeId()}
+    console.log('addReview()', bookId, review);
+    return get(bookId).then(book => {
+        book.reviews.push(review);
+        return storageService.put(BOOK_KEY, book);
+    })
+}
+
+function deleteReview(bookId, reviewId) {
+    console.log('review to delete', reviewId, 'from', bookId);
+    
+    return get(bookId).then(book => {
+        book.reviews = book.reviews.filter(review => review.id !== reviewId);
+        return storageService.put(BOOK_KEY, book);
+    })
 }

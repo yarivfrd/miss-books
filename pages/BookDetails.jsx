@@ -1,5 +1,7 @@
 import { bookService } from "../services/book.service.js"
 import { makeId } from "../services/util.service.js";
+import { AddReview } from "../cmps/AddReview.jsx";
+import { Reviews } from "../cmps/Reviews.jsx";
 
 const { useState, useEffect } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
@@ -50,6 +52,25 @@ export function BookDetails() {
         if (book.listPrice.amount < 20) return 'green';
     }
 
+    function handleReviewSubmission(e, { fullName, rating }) {
+        e.preventDefault();
+        bookService.addReview(book.id, {
+            fullName,
+            rating: +rating,
+            readAt: Date.now()
+        }).then(updatedBook => {
+            setBook(updatedBook);
+        });
+    }
+
+    function handleReviewDelete(reviewId) {
+        console.log('handleReviewDelete');
+        bookService.deleteReview(book.id, reviewId)
+            .then(updatedBook => {
+            setBook(updatedBook);
+        });
+    }
+
     if (!book) return <div>Loading...</div>
     return (
         <section className="book-details">
@@ -77,6 +98,15 @@ export function BookDetails() {
                     </p>
                 </div>
             </div>
+            <Reviews
+                reviewItems={book.reviews}
+                bookId={book.id}
+                handleReviewDelete={handleReviewDelete}
+            />
+            <AddReview
+                bookId={book.id}
+                handleReviewSubmission={handleReviewSubmission}
+            />
         </section>
     )
 }
