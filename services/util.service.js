@@ -44,3 +44,9 @@ export function debounce(func, time = 500) {
         }, time);
     }
 }
+
+export const defaultPageAanimations = [
+    "animate__animated",
+    "animate__fadeIn",
+    "animate__faster"
+];

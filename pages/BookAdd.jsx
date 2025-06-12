@@ -1,4 +1,4 @@
-import { debounce } from "../services/util.service.js";
+import { debounce, defaultPageAanimations } from "../services/util.service.js";
 import googleBookService from "../services/google-book.service.js";
 import { bookService } from '../services/book.service.js'
 import { BookResultItem } from "../cmps/BookResultItem.jsx";
@@ -34,7 +34,7 @@ export function BookAdd() {
   }
 
   return (
-    <section className="book-add">
+    <section className={`book-add ${[...defaultPageAanimations].join(' ')}`}>
       <button onClick={() => navigate('/book')}>Back</button>
       <h1>Add Google Book</h1>
       <form>

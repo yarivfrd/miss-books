@@ -2,6 +2,7 @@ import { BookFilter } from "../cmps/BookFilter.jsx"
 import { BookList } from "../cmps/BookList.jsx"
 import { bookService } from "../services/book.service.js"
 import { showSuccessMsg } from "../services/event-bus.service.js"
+import { defaultPageAanimations } from "../services/util.service.js";
 
 const { useNavigate } = ReactRouterDOM
 
@@ -48,7 +49,7 @@ export function BookIndex() {
 
     if (!books) return <div>Loading...</div>
     return (
-        <div className="BookIndex">
+        <div className={`BookIndex ${[...defaultPageAanimations].join(" ")}`}>
             <aside>
                 <button onClick={() => navigate('/book/edit')}>Add New Manually</button>
                 <button onClick={() => navigate('/book/add')}>Add New From Google</button>

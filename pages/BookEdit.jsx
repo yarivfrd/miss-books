@@ -1,6 +1,6 @@
 
 import { bookService } from "../services/book.service.js";
-import { makeLorem, getRandomIntInclusive } from '../services/util.service.js';
+import { makeLorem, getRandomIntInclusive, defaultPageAanimations } from '../services/util.service.js';
 import { showSuccessMsg } from "../services/event-bus.service.js";
 const { useNavigate } = ReactRouterDOM;
 
@@ -46,7 +46,7 @@ export function BookEdit() {
     const isEdit = false
     
     return (
-        <section onSubmit={onSaveBook} className="book-edit">
+        <section onSubmit={onSaveBook} className={`book-edit ${[...defaultPageAanimations].join(' ')}`}>
             <h1>{isEdit ? 'Edit' : 'Add'} Book</h1>
             <form>
                 <label htmlFor="title">Title</label>

@@ -1,5 +1,5 @@
 
-import { makeLorem } from "../services/util.service.js";
+import { makeLorem, defaultPageAanimations } from "../services/util.service.js";
 const { useNavigate } = ReactRouterDOM;
 
 export function AboutGoal() {
@@ -7,7 +7,7 @@ export function AboutGoal() {
     const navigate = useNavigate();
 
     return (
-        <section className="about-goal">
+        <section className={`about-goal ${[...defaultPageAanimations].join(" ")}`}>
             <h2>The goal</h2>
             <p>{makeLorem()}</p>
             <hr />

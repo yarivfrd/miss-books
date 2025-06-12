@@ -1,5 +1,6 @@
 
 import LongTxt from '../cmps/LongTxt.jsx';
+import { defaultPageAanimations } from '../services/util.service.js';
 const { useNavigate } = ReactRouterDOM;
 
 export function AboutUs() {
@@ -7,7 +8,7 @@ export function AboutUs() {
     const navigate = useNavigate();
 
     return (
-        <div className="about">
+        <div className={`about ${[...defaultPageAanimations].join(' ')}`}>
             <h2>About books and us...</h2>
             <LongTxt />
             <hr />

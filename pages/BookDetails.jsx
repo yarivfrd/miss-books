@@ -1,5 +1,6 @@
+
 import { bookService } from "../services/book.service.js"
-import { makeId } from "../services/util.service.js";
+import { makeId, defaultPageAanimations } from "../services/util.service.js";
 import { AddReview } from "../cmps/AddReview.jsx";
 import { Reviews } from "../cmps/Reviews.jsx";
 
@@ -73,7 +74,7 @@ export function BookDetails() {
 
     if (!book) return <div>Loading...</div>
     return (
-        <section className="book-details">
+        <section className={`book-details ${[...defaultPageAanimations].join(" ")}`}>
             <div className="navigation">
                 <button onClick={onBack}>All Books</button>
                 <section>
