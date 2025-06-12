@@ -27,7 +27,7 @@ export function BookEdit() {
             description: makeLorem(16),
             pageCount: getRandomIntInclusive(30, 1000),
             categories: ['Computers', 'Hack'],
-            thumb: 'https://m.media-amazon.com/images/I/91uFdkCJmAL._SL300_.jpg',
+            thumbnail: 'https://m.media-amazon.com/images/I/91uFdkCJmAL._SL300_.jpg',
             listPrice: {
                 amount: priceVal,
                 currencyCode: "USD",
