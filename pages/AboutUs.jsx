@@ -1,14 +1,18 @@
 
 import LongTxt from '../cmps/LongTxt.jsx';
+const { useNavigate } = ReactRouterDOM;
 
 export function AboutUs() {
+
+    const navigate = useNavigate();
 
     return (
         <div className="about">
             <h2>About books and us...</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio dolore sapiente, iste animi corporis nisi atque tempora assumenda dolores. Nobis nam dolorem rerum illo facilis nemo sit voluptatibus laboriosam necessitatibus!</p>
-            <hr />
             <LongTxt />
+            <hr />
+            <button onClick={() => navigate('/about-us/team')}>Team</button>
+            <button onClick={() => navigate('/about-us/goal')}>Goal</button>
         </div>
 
     )
