@@ -16,12 +16,12 @@ export function AddReview({ handleReviewSubmission }) {
             <form>
 
                 <div className="input-group">
-                    <label htmlFor="fullName">Name</label>
+                    <label htmlFor="fullName">Name </label>
                     <input onChange={handleChange} type="text" value={reviewToEdit.fullName} name="fullName" id="fullName" />
                 </div>
 
                 <div className="input-group">
-                    <label htmlFor="rating">Rating</label>
+                    <label htmlFor="rating">Rating </label>
                     <input onChange={handleChange} type="radio" value={1} name="rating" id="rating" />
                     <input onChange={handleChange} type="radio" value={2} name="rating" id="rating" />
                     <input onChange={handleChange} type="radio" value={3} name="rating" id="rating" />
