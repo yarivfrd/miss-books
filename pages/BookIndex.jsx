@@ -50,7 +50,8 @@ export function BookIndex() {
     return (
         <div className="BookIndex">
             <aside>
-                <button onClick={() => navigate('/book/edit')}>Add New</button>
+                <button onClick={() => navigate('/book/edit')}>Add New Manually</button>
+                <button onClick={() => navigate('/book/add')}>Add New From Google</button>
                 <BookFilter onSetFilter={onSetFilter} filterBy={filterBy} />
                 <button onClick={handleBooksReset}>Reset Books</button>
             </aside>
