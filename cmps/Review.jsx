@@ -1,4 +1,12 @@
 
+const ratingIconMap = {
+    1: "★☆☆☆☆",
+    2: "★★☆☆☆",
+    3: "★★★☆☆",
+    4: "★★★★☆",
+    5: "★★★★★",
+}
+
 export function Review({
     id,
     fullName,
@@ -9,7 +17,7 @@ export function Review({
     return (
         <div className="Review">
             <span>{fullName} </span>
-            <span>{rating} ★ </span>
+            <span>{ratingIconMap[rating]} </span>
             <span>{new Date(readAt).toLocaleDateString()} | {new Date(readAt).toLocaleTimeString()}</span>
             <button onClick={() => handleReviewDelete(id)}>Delete</button>
         </div>
