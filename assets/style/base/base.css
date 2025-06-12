@@ -6,8 +6,11 @@ html {}
 
 body {
     margin: 0;
+    
     color: var(--gray3);
+    font-family: "EB Garamond", serif;
     font-size: 1.2rem;
+    font-weight: 400;
     background-color: #fffdf3;
 }
 
@@ -19,8 +22,9 @@ h3,
 h4,
 h5,
 h6 {
+    font-weight: 600;
     margin: .5em 0 .5em;
-    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-family: "EB Garamond", serif;
 }
 
 p {
@@ -46,4 +50,8 @@ object {
 /* Simple and useful CSS Debugging Technique */
 .debug * {
     outline: 1px solid red
+}
+
+button, a {
+    font: inherit;
 }
