@@ -1,4 +1,5 @@
 import { BookFilter } from "../cmps/BookFilter.jsx"
+import { BookAside } from "../cmps/BookAside.jsx"
 import { BookList } from "../cmps/BookList.jsx"
 import { bookService } from "../services/book.service.js"
 import { showSuccessMsg } from "../services/event-bus.service.js"
@@ -38,7 +39,7 @@ export function BookIndex() {
             })
     }
 
-    function onSetFilter(filterBy) {
+    function handleSetFilter(filterBy) {
         setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
     }
 
@@ -50,12 +51,11 @@ export function BookIndex() {
     if (!books) return <div>Loading...</div>
     return (
         <div className={`BookIndex ${[...defaultPageAanimations].join(" ")}`}>
-            <aside>
-                <button onClick={() => navigate('/book/edit')}>Add New Manually</button>
-                <button onClick={() => navigate('/book/add')}>Add New From Google</button>
-                <BookFilter onSetFilter={onSetFilter} filterBy={filterBy} />
-                <button onClick={handleBooksReset}>Reset Books</button>
-            </aside>
+            <BookAside
+                onSetFilter={handleSetFilter}
+                onBookReset={handleBooksReset}
+                filterBy={filterBy}
+            />
             <BookList
                 books={books}
                 onRemoveBook={onRemoveBook}
