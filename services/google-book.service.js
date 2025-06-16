@@ -1,8 +1,6 @@
 
 
-export default {
-    query
-}
+export default { query }
 
 async function query(txt) {
     // const response = await fetch('../assets/data/google-books.json');
