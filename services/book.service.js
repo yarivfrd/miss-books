@@ -16,7 +16,8 @@ const
             "pageCount": 713,
             "categories": [
                 "Computers",
-                "Hack"
+                "Hack",
+                "Food"
             ],
             "thumbnail": "http://coding-academy.org/books-photos/20.jpg",
             "language": "en",
@@ -310,7 +311,8 @@ const
             "pageCount": 608,
             "categories": [
                 "Computers",
-                "Hack"
+                "Hack",
+                "Chess"
             ],
             "thumbnail": "http://coding-academy.org/books-photos/3.jpg",
             "language": "he",
@@ -332,7 +334,8 @@ const
             "pageCount": 583,
             "categories": [
                 "Computers",
-                "Hack"
+                "Hack",
+                "Sports"
             ],
             "thumbnail": "http://coding-academy.org/books-photos/6.jpg",
             "language": "en",
@@ -376,7 +379,8 @@ const
             "pageCount": 804,
             "categories": [
                 "Computers",
-                "Hack"
+                "Hack",
+                "Lifestyle"
             ],
             "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
             "language": "en",
@@ -442,7 +446,8 @@ const
             "pageCount": 904,
             "categories": [
                 "Computers",
-                "Hack"
+                "Hack",
+                "Food"
             ],
             "thumbnail": "http://coding-academy.org/books-photos/2.jpg",
             "language": "sp",
@@ -465,7 +470,8 @@ export const bookService = {
     addReview,
     deleteReview,
     addGoogleBook,
-    getFilterFromSrcParams
+    getFilterFromSrcParams,
+    getDashboardData
 }
 
 function query(filterBy = {}) {
@@ -590,4 +596,30 @@ function addGoogleBook(item) {
             isOnSale: false
         }
     })
+}
+
+function getDashboardData() {
+    return query()
+        .then(books => {
+
+            const bookData = books.reduce((BookCats, book) => {
+                book.categories.forEach(cat => {
+                    if (!Object.keys(BookCats).includes(cat)) {
+                        BookCats[cat] = 1;
+                    } else {
+                        BookCats[cat]++;
+                    }
+                });
+                return BookCats;
+            }, {});
+
+            for (const [cat, count ] of Object.entries(bookData)) {
+                bookData[cat] = (count / books.length) * 100;
+            }
+
+            return bookData;
+        })
+        .catch(err => {
+            console.log('Problems getting books:', err);
+        });
 }

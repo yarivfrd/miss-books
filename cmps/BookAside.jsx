@@ -10,6 +10,7 @@ export function BookAside({ onSetFilter, filterBy, onBookReset }) {
         <aside>
             <button onClick={() => navigate('/book/edit')}>Add New Manually</button>
             <button onClick={() => navigate('/book/add')}>Add New From Google</button>
+            <button onClick={() => navigate('/book/stats')}>Stats</button>
             <BookFilter
                 onSetFilter={onSetFilter}
                 filterBy={filterBy}
