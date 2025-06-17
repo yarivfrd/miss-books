@@ -1,12 +1,13 @@
 
-const { useState, useEffect } = React
+const { useState, useEffect } = React;
+
 export function BookFilter({ filterBy, onSetFilter }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
     useEffect(() => {
-        onSetFilter(filterByToEdit)
-    }, [filterByToEdit])
+        onSetFilter(filterByToEdit);
+    }, [filterByToEdit]);
 
     function handleChange({ target }) {
         let { value, name: field } = target
@@ -28,14 +29,14 @@ export function BookFilter({ filterBy, onSetFilter }) {
             <form>
                 <fieldset>
                     <legend>Filter</legend>
-                    <label>Name<br/>
+                    <label>Name<br />
                         <input onChange={handleChange} value={txt} name="txt" type="text" id="txt" />
                     </label>
-                    <label htmlFor="maxPrice">Max Price<br/>
-                        <input onChange={handleChange} value={maxPrice} name="maxPrice" type="number" id="maxPrice" />
+                    <label htmlFor="maxPrice">Max Price<br />
+                        <input onChange={handleChange} value={maxPrice || ''} name="maxPrice" type="number" id="maxPrice" />
                     </label>
-                    <label htmlFor="maxYear">Max Year<br/>
-                        <input onChange={handleChange} value={maxYear} name="maxYear" type="number" id="maxYear" />
+                    <label htmlFor="maxYear">Max Year<br />
+                        <input onChange={handleChange} value={maxYear || ''} name="maxYear" type="number" id="maxYear" />
                     </label>
                     <label htmlFor="isOnSale">
                         <input onChange={handleChange} value={isOnSale} name="isOnSale" type="checkbox" id="isOnSale" />

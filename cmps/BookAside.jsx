@@ -2,7 +2,7 @@
 import { BookFilter } from "./BookFilter.jsx";
 const { useNavigate } = ReactRouterDOM;
 
-export function BookAside({ onSetFilter, filterBy, onBooksReset }) {
+export function BookAside({ onSetFilter, filterBy, onBookReset }) {
 
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export function BookAside({ onSetFilter, filterBy, onBooksReset }) {
                 onSetFilter={onSetFilter}
                 filterBy={filterBy}
             />
-            <button onClick={onBooksReset}>Reset Books</button>
+            <button onClick={onBookReset}>Reset Books</button>
         </aside>
     )
 }

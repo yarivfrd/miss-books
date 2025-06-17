@@ -464,7 +464,8 @@ export const bookService = {
     resetBooksDb,
     addReview,
     deleteReview,
-    addGoogleBook
+    addGoogleBook,
+    getFilterFromSrcParams
 }
 
 function query(filterBy = {}) {
@@ -510,6 +511,21 @@ function getEmptyBook(title = '', desc = '', thumb = '', listPrice = '') {
 
 function getDefaultFilter() {
     return { txt: '', maxPrice: '', maxYear: '', isOnSale: false }
+}
+
+function getFilterFromSrcParams(searchParams) {
+    const
+        txt = searchParams.get('txt') || '',
+        maxPrice = searchParams.get('maxPrice') || '',
+        maxYear = searchParams.get('maxYear') || '',
+        isOnSale = searchParams.get('isOnSale') || false;
+
+    return {
+        txt,
+        maxPrice,
+        maxYear,
+        isOnSale
+    }
 }
 
 function _setNextPrevBookId(book) {

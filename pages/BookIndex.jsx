@@ -1,22 +1,23 @@
-import { BookFilter } from "../cmps/BookFilter.jsx"
 import { BookAside } from "../cmps/BookAside.jsx"
 import { BookList } from "../cmps/BookList.jsx"
 import { bookService } from "../services/book.service.js"
 import { showSuccessMsg } from "../services/event-bus.service.js"
-import { defaultPageAanimations } from "../services/util.service.js";
+import { defaultPageAanimations, getTruthyValues } from "../services/util.service.js";
 
-const { useNavigate } = ReactRouterDOM
+const { useNavigate, useSearchParams } = ReactRouterDOM;
 
 const { useEffect, useState } = React
 
 export function BookIndex() {
     const
         [books, setBooks] = useState(null),
-        [filterBy, setFilterBy] = useState(bookService.getDefaultFilter()),
+        [searchParams, setSearchParams] = useSearchParams(),
+        [filterBy, setFilterBy] = useState(bookService.getFilterFromSrcParams(searchParams)),
         navigate = useNavigate();
 
     useEffect(() => {
         loadBooks()
+        setSearchParams(getTruthyValues(filterBy));
     }, [filterBy])
 
     function loadBooks() {

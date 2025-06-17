@@ -50,3 +50,14 @@ export const defaultPageAanimations = [
     "animate__fadeIn",
     "animate__faster"
 ];
+
+export function getTruthyValues(obj) {
+    const newObj = {}
+    for (const key in obj) {
+        const value = obj[key];
+        if (value || typeof value === 'boolean') {
+            newObj[key] = value;
+        }
+    }
+    return newObj;
+}
