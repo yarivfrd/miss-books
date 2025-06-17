@@ -10,7 +10,7 @@ const { useEffect, useState } = React
 
 export function BookIndex() {
     const
-        [books, setBooks] = useState(null),
+        [books, setBooks] = useState([]),
         [searchParams, setSearchParams] = useSearchParams(),
         [filterBy, setFilterBy] = useState(bookService.getFilterFromSrcParams(searchParams)),
         navigate = useNavigate();
