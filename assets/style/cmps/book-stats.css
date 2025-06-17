@@ -1,7 +1,7 @@
 .book-stats {
     display: flex;
-    justify-content: space-between;
     height: max-content;
+    gap: 50px;
 }
 
 .book-stats .graph-item {
