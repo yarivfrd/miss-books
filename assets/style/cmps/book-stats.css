@@ -1,6 +1,7 @@
 .book-stats {
     display: flex;
     height: max-content;
+    justify-content: center;
     gap: 50px;
 }
 
