@@ -511,8 +511,8 @@ function save(book) {
     }
 }
 
-function getEmptyBook(title = '', desc = '', thumb = '', listPrice = '') {
-    return { title, desc, thumb, listPrice }
+function getEmptyBook(title = '', desc = '', thumb = '', amount = '') {
+    return { title, desc, thumb, amount }
 }
 
 function getDefaultFilter() {

@@ -29,6 +29,7 @@ export function App() {
                         <Route path="/about-us/goal" element={<AboutGoal />} />
                         <Route path="/book" element={<BookIndex />} />
                         <Route path="/book/edit" element={<BookEdit />} />
+                        <Route path="/book/edit/:bookId" element={<BookEdit />} />
                         <Route path="/book/add" element={<BookAdd />} />
                         <Route path="/book/stats" element={<BookStats />} />
                         <Route path="/book/:bookId" element={<BookDetails />} />
