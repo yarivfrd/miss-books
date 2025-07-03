@@ -8,14 +8,15 @@ export function BookAside({ onSetFilter, filterBy, onBookReset }) {
 
     return (
         <aside className="book-aside">
-            <button onClick={() => navigate('/book/edit')}>Add</button>
-            <button onClick={() => navigate('/book/add')}>Add Google Book</button>
-            <button onClick={() => navigate('/book/stats')}>Stats</button>
             <BookFilter
                 onSetFilter={onSetFilter}
                 filterBy={filterBy}
             />
-            <button className="reset-books-btn" onClick={onBookReset}>Reset Books</button>
+            <button onClick={() => navigate('/book/edit')}>Add</button>
+            <button onClick={() => navigate('/book/add')}>Add Google Book</button>
+            <button onClick={() => navigate('/book/stats')}>Stats</button>
+            <hr />
+            <button className="reset-books-btn danger" onClick={onBookReset}>Reset Books</button>
         </aside>
     )
 }

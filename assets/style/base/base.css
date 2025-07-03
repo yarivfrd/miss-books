@@ -2,42 +2,63 @@
     box-sizing: border-box;
 }
 
-html {}
-
 body {
     margin: 0;
-    
-    color: var(--gray3);
-    font-family: "EB Garamond", serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    background-color: #fffdf3;
+    color: var(--text-color-1);
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--light-color-1);
 }
 
-input, label {cursor: pointer;}
+input,
+label {
+    cursor: pointer;
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-    font-weight: 600;
-    margin: .5em 0 .5em;
+h6,
+.logo {
+    font-weight: 500;
     font-family: "EB Garamond", serif;
+    margin: 0;
+    line-height: 1;
+}
+
+.logo {
+    margin-block-end: 0;
 }
 
 p {
-    margin: 0 0 1em;
+    margin: 0;
+    line-height: 1.6;
 }
 
 a {
-    text-decoration: none;
+    color: var(--text-color-1);
+    border-bottom: solid 1px var(--text-color-1);
+    padding-block-end: 1px;
     color: unset;
     cursor: pointer;
+    text-decoration: none;
 }
 
-
+a.active {
+    font-weight: 600;
+    color: var(--text-color-2);
+    border-bottom: solid 3px var(--text-color-2);
+}
 
 /* Dont stretch my Media */
 img,
@@ -52,6 +73,75 @@ object {
     outline: 1px solid red
 }
 
-button, a {
+button,
+a {
     font: inherit;
+}
+
+button {
+    background-color: transparent;
+    font: inherit;
+    color: var(--text-color-2);
+    border: 1px solid var(--text-color-2);
+    padding-block: 10px;
+    padding-inline: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+button:hover {
+    background-color: var(--text-color-2);
+    color: var(--light-color-1);
+}
+
+.page-title {
+    font-size: 80px;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--text-color-2);
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-color-1);
+    margin-block-end: 40px;
+}
+
+.cta {
+    background-color: var(--cta-color);
+    color: var(--light-color-1);
+    border: none;
+    padding-block: 10px;
+    padding-inline: 35px;
+}
+
+[class*=fa-chevron] {
+    font-size: 13px;
+}
+
+hr {
+    border-color: var(--light-color-2);
+    width: 100%;
+    border-width: 0;
+    border-bottom-width: 3px;
+}
+
+.danger {
+    background-color: var(--danger-color);
+}
+
+.danger:hover {
+    background-color: var(--danger-color-hover);
+}
+
+.disabled {
+    filter: grayscale(1);
+    opacity: .5;
+    pointer-events: none;
+    user-select: none;
+}
+
+.back-to-books-btn {
+    margin-inline-end: 7px;
 }

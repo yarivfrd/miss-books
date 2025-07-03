@@ -1,11 +1,5 @@
 
-const ratingIconMap = {
-    1: "★☆☆☆☆",
-    2: "★★☆☆☆",
-    3: "★★★☆☆",
-    4: "★★★★☆",
-    5: "★★★★★",
-}
+import { makeId } from '../services/util.service.js';
 
 export function Review({
     id,
@@ -14,12 +8,24 @@ export function Review({
     readAt,
     handleReviewDelete
 }) {
+
+    function getRatingIcons() {
+        const iconArr = [];
+        for (let i = 0; i < 5; i++) {
+            iconArr.push(
+                i <= rating - 1
+                ? <i key={makeId()} className="fa fa-bookmark" aria-hidden="true"></i>
+                : <i key={makeId()} className="fa fa-bookmark-o" aria-hidden="true"></i>
+            );
+        }
+        return iconArr;
+    }
     return (
-        <div className="Review">
-            <span>{fullName} </span>
-            <span>{ratingIconMap[rating]} </span>
-            <span>{new Date(readAt).toLocaleDateString()} | {new Date(readAt).toLocaleTimeString()}</span>
-            <button onClick={() => handleReviewDelete(id)}>Delete</button>
+        <div className="review">
+            <span className="name">{fullName}</span>
+            <span className="rating">{getRatingIcons()}</span>
+            <span className="pubslish-date">{new Date(readAt).toLocaleDateString()} | {new Date(readAt).toLocaleTimeString()}</span>
+            <button className="delete-review-btn cta danger" onClick={() => handleReviewDelete(id)}><i className="fa fa-trash" aria-hidden="true"></i></button>
         </div>
     )
 }

@@ -1,0 +1,39 @@
+.book-result-item {
+    display: flex;
+    gap: 10px;
+
+    position: relative;
+    padding: 10px;
+    width: calc(33% - 20px);
+    background-color: var(--light-color-2);
+    cursor: pointer;
+
+    border-radius: 10px;
+}
+
+.book-result-item img {
+    max-width: 115px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px -5px #000;
+}
+
+.book-result-item h3 {
+    font-size: 18px;
+    color: var(--text-color-2);
+    font-family: inherit;
+}
+
+.book-result-item:hover:after {
+    content: "+";
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    inset: 0;
+
+    font-size: 90px;
+    color: white;
+    background-color: rgba(0, 0, 0, .5);
+}

@@ -5,12 +5,10 @@ export function Reviews( {
     reviewItems,
     handleReviewDelete
 }) {
-
-    if (!reviewItems) return null;
     return (
-        <div className="Reviews">
-            <h2>Reviews</h2>
-            {reviewItems.map(({
+        <div className="reviews">
+            <h2 className="title">Reviews</h2>
+            {reviewItems && reviewItems.length ?  reviewItems.map(({
                 id,
                 fullName,
                 rating,
@@ -24,7 +22,7 @@ export function Reviews( {
                     readAt={readAt}
                     handleReviewDelete={handleReviewDelete}
                 />
-            ))}
+            )) : <p className="no-reviews-label">No reviews yet</p>}
         </div>
     )
 }

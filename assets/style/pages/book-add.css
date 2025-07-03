@@ -1,9 +1,13 @@
-
 .book-add {
-    text-align: center;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .book-add ul {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
     list-style: none;
-    text-align: left;
 }

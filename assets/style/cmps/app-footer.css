@@ -1,49 +1,62 @@
+
 .app-footer {
-    /* padding-block: 20px; */
-    height: 120px;
-    background-color: #101010;
-    color: white;
-    transition: .2s;
-}
-
-.app-footer > section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.app-footer h1 {
-    margin-inline-end: auto;
-}
-
-.app-footer nav {
-    display: flex;
-    gap: 10px;
-}
-
-.app-footer .active {
-    color: white;
-}
-
-
-.app-footer .items-container {
-    display: flex;
-    gap: 10px;
-}
-
-.app-footer .item {
-    border: whitesmoke 3px solid;
-    padding: 5px;
-    margin: 5px;
-    min-height: 40px;
-    min-width: 40px;
-    cursor: pointer;
     display: grid;
-    place-items: center;
-    transition: .2s border-width;
+    row-gap: 30px;
+    grid-template-columns: 10% 1fr 1fr 10%;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+    ". info links ."
+    ". copyright copyright ."
+    ;
+
+    padding-block-start: 30px;
+    padding-block-end: 30px;
+    color: var(--light-color-1);
+    background-color: var(--cta-color);
 }
 
-.app-footer .chosen {
-    border-width: 6px;
+.app:has(.home) .app-footer{
+    background-color: rgba(96, 122, 114, 0.8);    
+    backdrop-filter: blur(3px);
+}
+
+.app-footer .info {
+    grid-area: info;
+}
+
+.app-footer .info .brand-name {
+    font-size: 60px;
+}
+
+.app-footer .info .subtitle {
+    color: inherit;
+    margin-block-end: 0;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.app-footer .links {
+    grid-area: links;
+
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: end;
+}
+
+.app-footer a {
+    color: var(--light-color-1);
+    border-bottom-color: var(--light-color-1);
+}
+
+.app-footer a.active {
+    border-bottom-color: var(--light-color-2);
+}
+
+.app-footer .copyright {
+    grid-area: copyright;
+
+    padding-block-start: 30px;
+    border-top: solid;
+    text-align: center;
 }

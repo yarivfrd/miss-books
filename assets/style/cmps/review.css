@@ -1,0 +1,40 @@
+.review {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, auto) 1fr auto;
+    grid-template-rows: auto;
+    align-items: center;
+    grid-template-areas:
+    'name rating publish-date . delete-review-btn'
+    ;
+
+    font-size: 14px;
+    border: solid 3px var(--light-color-2);
+    background-color: white;
+    padding-inline: 15px;
+    padding-block: 10px;
+    border-radius: 5px;
+}
+
+.review .name {
+    grid-area: name;
+}
+
+.review .rating {
+    grid-area: rating;
+
+    display: flex;
+    gap: 3px;
+}
+
+.review .publish-date {
+    grid-area: publish-date;
+}
+
+.review .delete-review-btn {
+    grid-area: delete-review-btn;
+
+    padding-inline: 20px;
+    padding-block: 10px;
+    aspect-ratio: 1 / 1;
+}

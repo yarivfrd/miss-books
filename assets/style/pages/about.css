@@ -1,8 +1,17 @@
-
-.about {
+.about .page-title {
+    margin-block-end: 20px;
 }
 
-.about  nav {
+.about .page-description {
+    margin-block-end: 20px;
+}
+
+.about nav {
     display: flex;
-    gap: 1em;
+    gap: 40px;
+    margin-block-end: 20px;
+}
+
+.about h2 {
+    margin-block: 20px;
 }

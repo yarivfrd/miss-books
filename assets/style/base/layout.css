@@ -1,9 +1,15 @@
 .main-layout {
     display: grid;
-    grid-template-columns: 20% 1fr 20%;
+    grid-template-columns: 10% 1fr 10%;
+    margin-block-end: 100px;
 }
 
-.main-layout>* {
+.main-layout:has(.home) {
+    height: calc(100dvh - 80px);
+    margin-block-end: 0;
+}
+
+.main-layout > * {
     grid-column: 2;
 }
 

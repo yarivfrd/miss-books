@@ -14,6 +14,8 @@
 /* Pages */
 @import "pages/home.css";
 @import "pages/about.css";
+@import "pages/about-team.css";
+@import "pages/about-goal.css";
 @import "pages/book-index.css";
 @import "pages/book-details.css";
 @import "pages/book-edit.css";
@@ -21,12 +23,15 @@
 
 /* Components */
 @import "cmps/app-header.css";
+@import "cmps/app-footer.css";
 @import "cmps/not-found.css";
 @import "cmps/book-list.css";
 @import "cmps/book-preview.css";
 @import "cmps/long-txt.css";
 @import "cmps/user-msg.css";
 @import "cmps/reviews.css";
+@import "cmps/review.css";
 @import "cmps/add-review.css";
 @import "cmps/book-stats.css";
 @import "cmps/book-aside.css";
+@import "cmps/book-result-item.css";

@@ -1,15 +1,11 @@
-.BookList {
-    margin-block-start: 0;
-    padding: 0;
+.book-list {
     display: flex;
+    column-gap: 6%;
+    row-gap: 40px;
     flex-wrap: wrap;
-    list-style: none;
-    justify-content: space-evenly;
-    gap: 30px;
+    grid-area: book-list;
 }
 
-.BookList li {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.book-list li {
+    width: 47%;
 }

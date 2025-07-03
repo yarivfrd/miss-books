@@ -1,4 +1,4 @@
-import { saveToStorage, makeId, getRandomIntInclusive } from './util.service.js'
+import { saveToStorage, makeId, getRandomIntInclusive, loadFromStorage } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const
@@ -55,7 +55,15 @@ const
                 "amount": 44,
                 "currencyCode": "EUR",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "1y0Oqts35DQ",
@@ -77,7 +85,15 @@ const
                 "amount": 108,
                 "currencyCode": "ILS",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "kSnfIJyikTP",
@@ -99,7 +115,15 @@ const
                 "amount": 30,
                 "currencyCode": "EUR",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "f4iuVmbuKCC",
@@ -121,7 +145,15 @@ const
                 "amount": 19,
                 "currencyCode": "USD",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "U2rfZO6oBZf",
@@ -143,7 +175,15 @@ const
                 "amount": 91,
                 "currencyCode": "USD",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "xI0wrXaaAcq",
@@ -165,7 +205,15 @@ const
                 "amount": 90,
                 "currencyCode": "USD",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "9laHCEdSpFy",
@@ -187,7 +235,15 @@ const
                 "amount": 176,
                 "currencyCode": "EUR",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "nGhVwZvGCGp",
@@ -209,7 +265,15 @@ const
                 "amount": 116,
                 "currencyCode": "USD",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "Q8Q9Lsd03BD",
@@ -231,7 +295,15 @@ const
                 "amount": 145,
                 "currencyCode": "EUR",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "bd7a76kARao",
@@ -253,7 +325,15 @@ const
                 "amount": 157,
                 "currencyCode": "ILS",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "qKyG0vqeO3e",
@@ -275,7 +355,15 @@ const
                 "amount": 57,
                 "currencyCode": "USD",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "2RvT48ZNInj",
@@ -297,7 +385,15 @@ const
                 "amount": 167,
                 "currencyCode": "ILS",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "5z2s9pDXAYj",
@@ -320,7 +416,15 @@ const
                 "amount": 150,
                 "currencyCode": "USD",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "zBZu5cDEWha",
@@ -343,7 +447,15 @@ const
                 "amount": 58,
                 "currencyCode": "ILS",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "aOI7tQuPZ2f",
@@ -365,7 +477,15 @@ const
                 "amount": 78,
                 "currencyCode": "USD",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "WBooB82Uvwu",
@@ -388,7 +508,15 @@ const
                 "amount": 118,
                 "currencyCode": "ILS",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "xm1z5bbZjlS",
@@ -410,7 +538,15 @@ const
                 "amount": 60,
                 "currencyCode": "EUR",
                 "isOnSale": false
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "u3j6QIKLlJb",
@@ -432,7 +568,15 @@ const
                 "amount": 110,
                 "currencyCode": "USD",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         },
         {
             "id": "vxYYYdVlEH3",
@@ -455,7 +599,15 @@ const
                 "amount": 186,
                 "currencyCode": "ILS",
                 "isOnSale": true
-            }
+            },
+            "reviews": [
+                {
+                    "id": "2dpp06xa",
+                    "fullName": "Yariv Fruend",
+                    "rating": 3,
+                    "readAt": 1749534066245
+                }
+            ]
         }
     ];
 
@@ -477,6 +629,10 @@ export const bookService = {
 function query(filterBy = {}) {
     return storageService.query(BOOK_KEY)
         .then(books => {
+            if (!books.length) {
+                resetBooksDb();
+                return loadFromStorage(BOOK_KEY);
+            }
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
                 books = books.filter(book => regExp.test(book.title))
@@ -511,8 +667,12 @@ function save(book) {
     }
 }
 
-function getEmptyBook(title = '', desc = '', thumb = '', amount = '') {
-    return { title, desc, thumb, amount }
+function getEmptyBook(title = '', desc = '', thumb = '', listPrice = {
+    amount: '',
+    currencyCode: '',
+    isOnSale: ''
+}) {
+    return { title, desc, thumb, listPrice }
 }
 
 function getDefaultFilter() {
@@ -524,7 +684,7 @@ function getFilterFromSrcParams(searchParams) {
         txt = searchParams.get('txt') || '',
         maxPrice = searchParams.get('maxPrice') || '',
         maxYear = searchParams.get('maxYear') || '',
-        isOnSale = searchParams.get('isOnSale') || false;
+        isOnSale = searchParams.get('isOnSale') === 'true' ? true : false;
 
     return {
         txt,
@@ -568,7 +728,6 @@ function deleteReview(bookId, reviewId) {
 }
 
 function addGoogleBook(item) {
-    console.log('addGoogleBook', item);
     const {
         title,
         description,
@@ -580,22 +739,23 @@ function addGoogleBook(item) {
         language
     } = item.volumeInfo;
 
-    save({
+    return save({
         title: title,
         subtitle: description && description.split('.')[0] || '[No subtitle available]',
-        authors,
+        authors: authors || 'Unknown author',
         publishedDate: publishedDate && publishedDate.split('-')[0] || '[Published date unknown]',
         description: description || '[No description]',
         pageCount,
-        categories,
+        categories: categories || [],
         language,
         thumbnail: imageLinks.thumbnail,
         listPrice: {
             amount: getRandomIntInclusive(10, 100),
             currencyCode: "USD",
             isOnSale: false
-        }
-    })
+        },
+        reviews: []
+    });
 }
 
 function getDashboardData() {
@@ -613,8 +773,8 @@ function getDashboardData() {
                 return BookCats;
             }, {});
 
-            for (const [cat, count ] of Object.entries(bookData)) {
-                bookData[cat] = (count / books.length) * 100;
+            for (const [cat, count] of Object.entries(bookData)) {
+                bookData[cat] = Math.floor((count / books.length) * 100);
             }
 
             return bookData;

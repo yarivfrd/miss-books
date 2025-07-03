@@ -1,7 +1,19 @@
+
 .book-stats {
     display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.book-stats .graph {
+    display: inline-flex;
     height: max-content;
     justify-content: center;
+
+    padding: 30px;
+    background-color: white;
+    border: solid 5px var(--light-color-2);
+    border-radius: 15px;
     gap: 50px;
 }
 
@@ -13,5 +25,7 @@
 }
 
 .book-stats .graph-item .meter {
-    background-color: darkred;
+    margin-block: 10px;
+    border-radius: 5px;
+    background-color: var(--light-color-3);
 }

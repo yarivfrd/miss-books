@@ -59,5 +59,12 @@ export function getTruthyValues(obj) {
             newObj[key] = value;
         }
     }
+        
     return newObj;
 }
+
+export const currencySymbolMap = {
+    'EUR': '€',
+    'USD': '$',
+    'ILS': '₪'
+};

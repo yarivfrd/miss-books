@@ -1,8 +1,43 @@
+.app:has(.home) {
+    background-image: url("../../img/journey-horizontal.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.app:has(.home):before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, var(--light-color-1), transparent);
+    height: 350px;
+}
 
 .home {
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }
 
-.welcome {
-    margin-block-start: 70px;
+.home .hero {
+    align-self: center;
+    justify-self: end;
+    /* border-radius: 15px; */
+    text-align: right;
+    /* background-color: rgba(255, 255, 255, .2); */
+    padding: 30px;
+}
+
+.home .hero .page-title {
+    text-shadow: 2px 2px 0 var(--light-color-1);
+    font-weight: 900;
+    font-size: 60px;
+    /* text-transform: uppercase; */
+    margin-block-end: 30px;
+}
+
+.home .cta i {
+    margin-inline-start: 7px;
 }

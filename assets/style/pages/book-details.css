@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 15vh;
 }
 
 .book-details .navigation {
@@ -10,21 +9,57 @@
     justify-content: space-between;
 }
 
+.book-details .nav-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.book-details .book-title {
+    text-transform: capitalize;
+    font-size: 48px;
+}
+
 .book-details .main-details {
     display: flex;
     align-items: flex-start;
     gap: 30px;
-    margin-block: 20px;
+    margin-block-start: 50px;
+    margin-block-end: 50px;
+}
+
+.book-details .cover-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+    "cover-image cover-image"
+    "edit-btn remove-btn"
+    ;
+}
+
+.book-details .cover-image {
+    grid-area: cover-image;
+    border-radius: 10px;
+}
+
+.book-details .remove-book-btn {
+    grid-area: remove-btn;
+}
+
+.book-details .edit-book-btn {
+    grid-area: edit-btn;
+}
+
+.book-details .main-details .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .book-details .main-details img {
+    min-width: 300px;
     box-shadow: 0 0 15px -5px #000;
-}
-
-.book-details h2 {
-    font-size: 2em;
-    margin-block-start: 0;
-    color: var(--clr1);
 }
 
 @media (max-width: 1000px) {

@@ -1,17 +1,11 @@
 
 import { bookService } from "../services/book.service.js"
-import { makeId, defaultPageAanimations } from "../services/util.service.js";
+import { makeId, defaultPageAanimations, currencySymbolMap } from "../services/util.service.js";
 import { AddReview } from "../cmps/AddReview.jsx";
 import { Reviews } from "../cmps/Reviews.jsx";
 
-const { useState, useEffect } = React
-const { useParams, useNavigate, Link } = ReactRouterDOM
-
-const currencySymbolMap = {
-    'EUR': '€',
-    'USD': '$',
-    'ILS': '₪'
-};
+const { useState, useEffect } = React;
+const { useParams, useNavigate } = ReactRouterDOM;
 
 export function BookDetails() {
     const
@@ -32,8 +26,14 @@ export function BookDetails() {
             })
     }
 
-    function onBack() {
-        navigate('/book')
+    function onRemoveBook(bookId) {
+    bookService.remove(bookId)
+        .then(() => {
+            navigate(`/book`);
+        })
+        .catch(err => {
+            console.log('Problems removing book:', err)
+        })
     }
 
     function getReadingLevelMsg() {
@@ -53,7 +53,7 @@ export function BookDetails() {
         if (book.listPrice.amount < 20) return 'green';
     }
 
-    function handleReviewSubmission(e, { fullName, rating }) {
+    function handleReviewSubmission(e, { fullName, rating }, clearForm) {
         e.preventDefault();
         bookService.addReview(book.id, {
             fullName,
@@ -61,6 +61,7 @@ export function BookDetails() {
             readAt: Date.now()
         }).then(updatedBook => {
             setBook(updatedBook);
+            clearForm();
         });
     }
 
@@ -75,21 +76,25 @@ export function BookDetails() {
     if (!book) return <div>Loading...</div>
     return (
         <section className={`book-details ${[...defaultPageAanimations].join(" ")}`}>
-            <div className="navigation">
-                <button onClick={onBack}>All Books</button>
-                <section>
-                    <Link to={`/book/${book.prevBookId}`}><button>Prev Book</button></Link>
-                    <Link to={`/book/${book.nextBookId}`}><button>Next Book</button></Link>
-                </section>
-            </div>
+            <nav className="navigation">
+                <button onClick={() => navigate('/book')}><i className="fa fa-chevron-left back-to-books-btn" aria-hidden="true"></i>Books</button>
+                <div className="nav-btns">
+                    <button onClick={() => navigate(`/book/${book.prevBookId}`)}><i className="fa fa-chevron-left" aria-hidden="true"></i></button>
+                    <button onClick={() => navigate(`/book/${book.nextBookId}`)}><i className="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            </nav>
             <div className="main-details">
-                <img src={book.thumbnail} alt="cover-image" />
+                <div className="cover-container">
+                    <img className="cover-image" src={book.thumbnail} alt="Book cover" />
+                    <button className="remove-book-btn cta danger" onClick={() => onRemoveBook(book.id)}><i className="fa fa-trash" aria-hidden="true"></i></button>
+                    <button className="edit-book-btn cta" onClick={() => navigate(`/book/edit/${book.id}`)}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+                </div>
                 <div className="info">
-                    <h2>{book.title}</h2>
-                    <p>By: {book.authors.map(author => <span key={makeId()}>{author}</span>)}</p>
+                    <h2 className="book-title">{book.title}</h2>
+                    <p>{book.subtitle}</p>
+                    <p>By {book.authors.map(author => <span key={makeId()}>{author}</span>)}</p>
                     <p>Released {book.publishedDate} | {book.pageCount} Pages | Language: {book.language.toUpperCase()}</p>
                     <p>Level: {getReadingLevelMsg()}</p>
-                    <p>{book.subtitle}</p>
                     <p>{book.description}</p>
                     <p className="categories">Categories: {book.categories.map(cat => <span key={makeId()} style={{ border: 'solid 1px', paddingInline: '5px', marginInlineEnd: '5px' }}>{cat}</span>)}</p>
                     <p>{getAgeLevel()}</p>
@@ -99,6 +104,7 @@ export function BookDetails() {
                     </p>
                 </div>
             </div>
+            <hr />
             <Reviews
                 reviewItems={book.reviews}
                 bookId={book.id}
