@@ -42,7 +42,7 @@ export function BookIndex() {
             <section className="hero">
                 <h1 className="hero-title">Explore Every Page</h1>
                 <p className="hero-subtitle">Step into a world where every book is a journey waiting to unfold. At Miss Books, we believe that reading is more than a pastime — it’s a powerful way to discover new ideas, explore distant lands, and connect with voices from across time and cultures.</p>
-                <video playsInline autoPlay={true} loop={true} className="hero-image" src="../assets/img/man-reading.mp4" alt="hero-image" />
+                <video playsInline autoPlay={true} loop={true} className="hero-image" src="https://github.com/yarivfrd/miss-books/raw/refs/heads/main/assets/img/man-reading.mp4" alt="hero-image" />
             </section>
 
             <BookAside
